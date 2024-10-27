@@ -1,6 +1,22 @@
 type: object
 properties:
-  firstName:
+  id:
     type: string
-    description: "The first name of the customer."
-    example: "John"
+    format: uuid
+    description: The unique identifier of the customer.
+  name:
+    $ref: name.yaml
+  shipToAddress:
+    $ref: address.yaml
+  billToAddress:
+    $ref: address.yaml
+  email:
+    type: string
+    description: The email address of the customer.
+  phone:
+    type: string
+    description: The phone number of the customer.
+  paymentMethods:
+    type: array
+    items:
+      $ref: payment_methods.yaml
