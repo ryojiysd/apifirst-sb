@@ -4,104 +4,59 @@ info:
   title: API First with Spring Boot
   termsOfService: https://example.com/terms/
   contact:
-    name: Contact our support
-    email: ryoji.ysd@gmail.com
-    url: http://example.com/contact
+    email: john@springframework.guru
+    url: http://springframework.guru/contact
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   x-logo:
-    url: 'https://redocly.github.io/openapi-template/logo.png'
-    altText: OpenAPI example logo
+    url: https://redocly.github.io/openapi-template/logo.png
   description: >
     This is an **example** API to demonstrate features of the OpenAPI
     specification.
-
-    # Introduction
-
-externalDocs:
-  description: "Find out how to create a GitHub repo for your OpenAPI definition."
-  url: 'https://github.com/Redocly/create-openapi-repo'
 tags:
   - name: Customer
-    description: "Customer operations."
-  - name: User
-    description: "Example actions on user accounts."
+    description: Customer operations
   - name: Products
-    description: "Operations on products."
-x-tagGroups:
-  - name: General
-    tags:
-      - User
-      - Info
-      - Echo
-  - name: Administration
-    tags:
-      - Admin
+    description: Product operations
+  - name: Order
+    description: Operations about orders.
 servers:
   - url: https://{tenant}/api/v1
     variables:
       tenant:
         default: www
         description: Your tenant id
-  - url: https://example.com/api/v1
+  - url: https://springframework.guru/api/v1
 paths:
-  '/v1/customers':
+  /v1/customers:
     $ref: paths/v1/customers.yaml
-  '/v1/customers/{customer_id}':
-    $ref: paths/v1/customers_{customer_id}.yaml
-  '/v1/products':
+  /v1/customers/{customerId}:
+    $ref: paths/v1/customers_{customerId}.yaml
+  /v1/products:
     $ref: paths/v1/products.yaml
-  '/v1/products/{product_id}':
-    $ref: paths/v1/products_{product_id}.yaml
-  # '/users/{username}':
-  #   $ref: 'paths/users_{username}.yaml'
-  # '/user':
-  #   $ref: 'paths/user.yaml'
-  # '/user/list':
-  #   $ref: 'paths/user-status.yaml'
-  # /pathItem:
-  #   $ref: paths/pathItem.yaml
-  # /pathItemWithExamples:
-  #   $ref: paths/pathItemWithExamples.yaml
-  # '/echo':
-  #   $ref: 'paths/echo.yaml'
+  /v1/products/{productId}:
+    $ref: paths/v1/products_{productId}.yaml
+  /v1/orders:
+    $ref: paths/v1/orders.yaml
+  /v1/orders/{orderId}:
+    $ref: paths/v1/orders_{orderId}.yaml
 security:
-  - basic_auth: []
+  -  basic_auth: []
 components:
   securitySchemes:
     main_auth:
-      description: "Example description text of the OAuth2 scheme."
       type: oauth2
       flows:
         implicit:
           authorizationUrl: http://example.com/api/oauth/dialog
           scopes:
-            'read:users': read user info
-            'write:users': modify or remove users
+            read:users: read users info
+            write:users: modify or remove users
     api_key:
-      description: "Example description text of the API key scheme."
       type: apiKey
       in: header
       name: api_key
     basic_auth:
       type: http
       scheme: basic
-# webhooks:
-  # userInfo:
-  #   post:
-  #     summary: New user webhook
-  #     description: "Information about a new user in the system."
-  #     operationId: userInfo
-  #     tags:
-  #       - Info
-  #     requestBody:
-  #       content:
-  #         application/json:
-  #           schema:
-  #             $ref: 'components/schemas/User.yaml'
-  #     responses:
-  #       '200':
-  #         description: "Successfully retrieved information about a new user."
-  #     security:
-  #       - api_key: []

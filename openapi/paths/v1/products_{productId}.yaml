@@ -1,13 +1,13 @@
 get:
   tags:
     - Customer
-  summary: "Get a customer"
-  description: "Get a customer by ID."
-  operationId: getCustomerById
+  summary: "Get a product"
+  description: "Get a product by ID."
+  operationId: getProductById
   parameters:
-    - name: customer_id
+    - name: productId
       in: path
-      description: "The ID of the customer to retrieve."
+      description: "The ID of the product to retrieve."
       required: true
       schema:
         type: string
