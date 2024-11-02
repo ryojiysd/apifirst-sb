@@ -1,0 +1,14 @@
+type: object
+properties:
+  prefix:
+    type: string
+    description: The prefix of the name.
+  firstName:
+    type: string
+    description: The first name of the name.
+  lastName:
+    type: string
+    description: The last name of the name.
+  suffix:
+    type: string
+    description: The suffix of the name.
