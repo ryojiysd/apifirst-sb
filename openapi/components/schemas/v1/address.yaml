@@ -3,19 +3,29 @@ properties:
   id:
     type: string
     format: uuid
-    description: The unique identifier of the customer.
+    description: Unique identifier representing a specific customer
   addressLine1:
     type: string
-    description: The first line of the address.
+    description: Address Line 1
+    minLength: 3
+    maxLength: 100
   addressLine2:
     type: string
-    description: The second line of the address.
+    description: Address Line 2
+    minLength: 3
+    maxLength: 100
   city:
     type: string
-    description: The city of the address.
+    description: City
+    minLength: 2
+    maxLength: 100
   state:
     type: string
-    description: The state of the address.
+    description: 2 character state code
+    minLength: 2
+    maxLength: 2
   zip:
     type: string
-    description: The zip code of the address.
+    description: Zip Code
+    minLength: 5
+    maxLength: 10
