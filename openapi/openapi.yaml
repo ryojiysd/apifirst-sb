@@ -27,12 +27,8 @@ tags:
     description: "Customer operations."
   - name: User
     description: "Example actions on user accounts."
-#   - name: Admin
-#     description: "Example operations reserved for administrators."
-#   - name: Info
-#     description: "Example operations for retrieving information."
-#   - name: Tag
-#     description: "This is a tag description."
+  - name: Products
+    description: "Operations on products."
 x-tagGroups:
   - name: General
     tags:
@@ -54,6 +50,10 @@ paths:
     $ref: paths/v1/customers.yaml
   '/v1/customers/{customer_id}':
     $ref: paths/v1/customers_{customer_id}.yaml
+  '/v1/products':
+    $ref: paths/v1/products.yaml
+  '/v1/products/{product_id}':
+    $ref: paths/v1/products_{product_id}.yaml
   # '/users/{username}':
   #   $ref: 'paths/users_{username}.yaml'
   # '/user':
