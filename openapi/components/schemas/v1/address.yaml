@@ -3,19 +3,45 @@ properties:
   id:
     type: string
     format: uuid
-    description: The unique identifier of the customer.
+    description: Unique identifier representing a specific customer
+    readOnly: true
   addressLine1:
     type: string
-    description: The first line of the address.
+    description: Address Line 1
+    minLength: 3
+    maxLength: 100
+    example: 123 Main Street
   addressLine2:
-    type: string
-    description: The second line of the address.
+    type:
+      - string
+      - 'null'
+    description: Address Line 2
+    minLength: 3
+    maxLength: 100
   city:
     type: string
-    description: The city of the address.
+    description: City
+    minLength: 2
+    maxLength: 100
+    example: St Petersburg
   state:
     type: string
-    description: The state of the address.
+    description: 2 character state code
+    minLength: 2
+    maxLength: 2
+    example: FL
   zip:
     type: string
-    description: The zip code of the address.
+    description: Zip Code
+    minLength: 5
+    maxLength: 10
+    example: 33701
+  dateCreated:
+    $ref: ../common/iso_timestamp.yaml
+  dateUpdated:
+    $ref: ../common/iso_timestamp.yaml
+required:
+  - addressLine1
+  - city
+  - state
+  - zip
