@@ -1,13 +1,16 @@
 type: object
 properties:
   id:
-    $ref: ../common/uuid_id.yaml
+    type: string
+    format: uuid
+    description: The unique identifier of the product
+    readOnly: true
   description:
     type: string
     description: The description of the product
     minLength: 3
     maxLength: 255
-  dimensions:
+  dimentions:
     $ref: dimensions.yaml
   categories:
     type: array
@@ -24,10 +27,9 @@ properties:
     type: string
     pattern: ^-?(?:0|[1-9]\d{0,2}(?:,?\d{3})*)(?:\.\d+)?$
   dateCreated:
-    type: string
-    format: date-time
-    description: The date the product was created.
+    $ref: ../common/iso_timestamp.yaml
   dateUpdated:
-    type: string
-    format: date-time
-    description: The date the product was last updated.
+    $ref: ../common/iso_timestamp.yaml
+required:
+  - description
+  - price
